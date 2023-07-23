@@ -13,6 +13,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { ApiService } from "./api.service";
 import {NgOptimizedImage} from "@angular/common";
+import {GoogleMapsModule} from "@angular/google-maps";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {NgOptimizedImage} from "@angular/common";
     MatCardModule,
     MatIconModule,
     MatListModule,
+    GoogleMapsModule,
     NgOptimizedImage
   ],
   providers: [ApiService],

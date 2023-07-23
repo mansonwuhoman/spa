@@ -10,9 +10,9 @@
     <mat-list>
       <ng-template ngFor let-friend [ngForOf]="friends">
         <mat-list-item>
-          <mat-card>
+          <mat-card style="cursor: pointer" (click)="checkDetail(friend._id)">
             <mat-card-header>
-              <mat-icon mat-card-avatar><img ngSrc="{{friend.picture}}" width="50" height="50" priority alt="friend's photo"/></mat-icon >
+              <mat-icon mat-card-avatar><img ngSrc="{{friend.picture}}" width="50" height="50" priority="true" alt="friend's photo"/></mat-icon >
               <mat-card-title>{{friend.name.first}} {{friend.name.last}}</mat-card-title>
             </mat-card-header>
           </mat-card>
@@ -25,90 +25,19 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
-    <p>main</p>
+    <google-map
+      [center]="center"
+      [mapTypeId]="mapTypeId"
+      width="100%"
+      height="720"
+    >
+      <map-marker
+        *ngIf="haveMarker"
+        [position]="{lat: marker.position.latitude, lng: marker.position.longitude}"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.options"
+      />
+    </google-map>
   </mat-sidenav-content>
 </mat-sidenav-container>
